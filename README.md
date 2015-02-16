@@ -16,3 +16,14 @@ to new text-editing levels.
 3. Done! Simply press Alt+V in any `<textarea>` to pop it out into Vim. When
    you're finished editing, `:wq` and click the "Done" button to dump the text
    back into the web browser.
+
+Note: If you don't have `gnome-terminal`, you also may have to edit the
+`cmd.sh` file. For example, if you're using OS X, change `cmd.sh` to
+
+    oascript -e 'tell application "Terminal" to do script "vim %s"'
+
+Or, for example, if you want to use xterm:
+
+    xterm -e 'vim %s'
+
+etc.
