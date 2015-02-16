@@ -17,8 +17,9 @@ to new text-editing levels.
    you're finished editing, `:wq` and click the "Done" button to dump the text
    back into the web browser.
 
-Note: If you don't have `gnome-terminal`, you also may have to edit the
-`cmd.sh` file. For example, if you're using OS X, change `cmd.sh` to
+Note: If you don't have / want to use the default `x-terminal-emulator`, you
+also may have to edit the `cmd.sh` file. For example, if you're using OS X,
+change `cmd.sh` to
 
     oascript -e 'tell application "Terminal" to do script "vim %s"'
 

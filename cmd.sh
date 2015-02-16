@@ -1,1 +1,1 @@
-gnome-terminal -e 'vim %s'
+x-terminal-emulator -e 'vim %s'
