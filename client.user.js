@@ -26,22 +26,22 @@ function go($) { $(function() {
         if (e.altKey && e.keyCode === 86) {
             e.preventDefault();
             var textarea = this;
-            editInVim(textarea.value, function(str) {
+            editInVim(textarea, function(str) {
                 textarea.value = str;
             });
         }
     });
 
-    function editInVim(val, callback) {
-        $.get('http://127.0.0.1:8000/server.php?str=' + encodeURIComponent(val));
-        makeOverlay(function(e) {
+    function editInVim(textarea, callback) {
+        $.get('http://127.0.0.1:8000/server.php?str=' + encodeURIComponent(textarea.value));
+        makeOverlay(textarea, function(e) {
             $.get('http://127.0.0.1:8000/server.php', function(data) {
                 callback(data);
             });
         });
     }
 
-    function makeOverlay(callback) {
+    function makeOverlay(textarea, callback) {
         var overlay = $('<div>')
             .css({
                 position: 'fixed',
@@ -55,6 +55,7 @@ function go($) { $(function() {
                 lineHeight: Math.floor(window.innerHeight / 2) + 'px'
             })
             .append($('<button>')
+                .attr('id', 'aviateDoneBtn')
                 .text('Done')
                 .click(function(e) {
                     overlay.fadeOut(300, overlay.remove);
@@ -63,5 +64,9 @@ function go($) { $(function() {
             )
             .hide().fadeIn(300)
             .appendTo(document.body);
+
+        $(textarea).one('focus', function() {
+            $('#aviateDoneBtn').click();
+        });
     }
 }); }
