@@ -9,18 +9,16 @@
 // ==/UserScript==
 
 window.addEventListener('load', function() {
-    if (typeof jQuery === 'undefined') {
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.addEventListener('load', function() {
-            var script2 = document.createElement('script');
-            script2.type = 'text/javascript';
-            script2.text = '(' + go + ')(jQuery);';
-            document.head.appendChild(script2);
-        });
-        script.src = 'http://code.jquery.com/jquery-1.11.2.min.js';
-        document.head.appendChild(script);
-    } else go(jQuery);
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.addEventListener('load', function() {
+        var script2 = document.createElement('script');
+        script2.type = 'text/javascript';
+        script2.text = 'var aviateJQ = jQuery.noConflict(true); (' + go + ')(aviateJQ);';
+        document.head.appendChild(script2);
+    });
+    script.src = 'http://code.jquery.com/jquery-1.11.2.min.js';
+    document.head.appendChild(script);
 });
 
 function go($) { $(function() {
