@@ -50,6 +50,7 @@ function go($) { $(function() {
                 width: window.innerWidth,
                 height: window.innerHeight,
                 backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                zIndex: '999999',
                 textAlign: 'center',
                 lineHeight: Math.floor(window.innerHeight / 2) + 'px'
             })
