@@ -27,7 +27,7 @@ function go($) { $(function() {
             e.preventDefault();
             var textarea = this;
             editInVim(textarea, function(str) {
-                textarea.value = str;
+                textarea.value = str.slice(0, -1);
             });
         }
     });
