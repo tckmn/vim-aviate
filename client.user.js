@@ -9,7 +9,7 @@
 // ==/UserScript==
 
 window.addEventListener('load', function() {
-    if (!jQuery) {
+    if (typeof jQuery === 'undefined') {
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.onload = function() { go(jQuery); };
