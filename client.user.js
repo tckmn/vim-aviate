@@ -58,7 +58,7 @@ function go($) { $(function() {
                 .attr('id', 'aviateDoneBtn')
                 .text('Done')
                 .click(function(e) {
-                    overlay.fadeOut(300, overlay.remove);
+                    overlay.fadeOut(300, function() { overlay.remove(); });
                     callback(e);
                 })
             )
