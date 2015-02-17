@@ -21,7 +21,7 @@ Note: If you don't have / want to use the default `x-terminal-emulator`, you
 also may have to edit the `cmd.sh` file. For example, if you're using OS X,
 change `cmd.sh` to
 
-    oascript -e 'tell application "Terminal" to do script "vim %s"'
+    osascript -e 'tell application "Terminal" to do script "vim %s"'
 
 Or, for example, if you want to use xterm:
 
